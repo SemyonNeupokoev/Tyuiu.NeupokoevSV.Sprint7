@@ -15,7 +15,7 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
             InitializeComponent();
             SetupTable();
         }
-
+ 
         private void SetupTable()
         {
             dataGridViewVivod_NSV.Columns.Add("TabNumber", "Табельный номер");
