@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Project.V8/">
+    <Project Path="Tyuiu.NeupokoevSV.Sprint7.Project.V8.Lib/Tyuiu.NeupokoevSV.Sprint7.Project.V8.Lib.csproj" Id="4d32340d-78c0-457e-826a-f1228a096b7c" />
+    <Project Path="Tyuiu.NeupokoevSV.Sprint7.Project.V8.Test/Tyuiu.NeupokoevSV.Sprint7.Project.V8.Test.csproj" Id="d46b94c8-197f-4dd9-ac25-09909d63e0a6" />
+    <Project Path="Tyuiu.NeupokoevSV.Sprint7.Project.V8/Tyuiu.NeupokoevSV.Sprint7.Project.V8.csproj" />
+  </Folder>
+</Solution>
