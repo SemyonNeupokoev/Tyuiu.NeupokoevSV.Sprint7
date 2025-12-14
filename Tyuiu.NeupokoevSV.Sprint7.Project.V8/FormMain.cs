@@ -15,7 +15,7 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
             InitializeComponent();
             SetupTable();
         }
- 
+
         private void SetupTable()
         {
             dataGridViewVivod_NSV.Columns.Add("TabNumber", "Табельный номер");
@@ -90,7 +90,68 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
 
         private void buttonOProg_NSV_Click(object sender, EventArgs e)
         {
-            new FormAbout().ShowDialog();
+            FormAbout formabout = new FormAbout();
+            formabout.ShowDialog();
         }
+
+        private void buttonGrafik_NSV_Click(object sender, EventArgs e)
+        {
+            if (drivers.Count == 0)
+            {
+                MessageBox.Show("Нет данных для графика!");
+                return;
+            }
+
+            chartGrafik_NSV.Series["Series1"].Points.Clear();
+
+            foreach (Driver driver in drivers)
+            {
+                string initials = $"{driver.LastName[0]}{driver.FirstName[0]}{driver.MiddleName[0]}";
+
+                chartGrafik_NSV.Series["Series1"].Points.AddXY(initials.ToUpper(),(double)driver.Salary);
+            }
+            chartGrafik_NSV.Titles.Clear();
+            chartGrafik_NSV.Titles.Add("Оклады водителей");
+            chartGrafik_NSV.ChartAreas[0].AxisX.Title = "Водитель";
+            chartGrafik_NSV.ChartAreas[0].AxisY.Title = "Оклад, руб.";
+
+            MessageBox.Show("График построен!");
+        }
+
+        private void buttonVipoln_NSV_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(textBoxMin_NSV.Text, out int min))
+            {
+                MessageBox.Show("Введите число в 'Мин. стаж'!");
+                return;
+            }
+
+            if (!int.TryParse(textBoxMaks.Text, out int max))
+            {
+                MessageBox.Show("Введите число в 'Макс. стаж'!");
+                return;
+            }
+
+            dataGridViewVivod_NSV.Rows.Clear();
+
+            int count = 0;
+            foreach (Driver d in drivers)
+            {
+                if (d.Experience >= min && d.Experience <= max)
+                {
+                    dataGridViewVivod_NSV.Rows.Add(
+                        d.TabNumber, d.LastName, d.FirstName,
+                        d.MiddleName, d.BirthDate.ToShortDateString(),
+                        d.Experience, d.Salary
+                    );
+                    count++;
+                }
+            }
+            if (count == 0)
+                MessageBox.Show("Нет таких водителей!");
+            else
+                MessageBox.Show($"Найдено: {count} водителей");
+        }
+
     }
 }

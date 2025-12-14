@@ -97,7 +97,7 @@
             // 
             // buttonSearch_NSV
             // 
-            buttonSearch_NSV.Location = new Point(31, 112);
+            buttonSearch_NSV.Location = new Point(31, 100);
             buttonSearch_NSV.Name = "buttonSearch_NSV";
             buttonSearch_NSV.Size = new Size(75, 34);
             buttonSearch_NSV.TabIndex = 1;
@@ -228,13 +228,14 @@
             // 
             // buttonVipoln_NSV
             // 
-            buttonVipoln_NSV.Location = new Point(37, 112);
+            buttonVipoln_NSV.Location = new Point(36, 100);
             buttonVipoln_NSV.Name = "buttonVipoln_NSV";
             buttonVipoln_NSV.Size = new Size(95, 34);
             buttonVipoln_NSV.TabIndex = 1;
             buttonVipoln_NSV.Text = "Выполнить";
             toolTip_NSV.SetToolTip(buttonVipoln_NSV, "Выполняется фильтрация по стажу");
             buttonVipoln_NSV.UseVisualStyleBackColor = true;
+            buttonVipoln_NSV.Click += buttonVipoln_NSV_Click;
             // 
             // textBoxMaks
             // 
@@ -309,6 +310,7 @@
             buttonGrafik_NSV.Text = "Отобразить";
             toolTip_NSV.SetToolTip(buttonGrafik_NSV, "Отобразить на графике оклады\r\n");
             buttonGrafik_NSV.UseVisualStyleBackColor = true;
+            buttonGrafik_NSV.Click += buttonGrafik_NSV_Click;
             // 
             // chartGrafik_NSV
             // 
@@ -325,7 +327,7 @@
             chartGrafik_NSV.Series.Add(series1);
             chartGrafik_NSV.Size = new Size(276, 147);
             chartGrafik_NSV.TabIndex = 0;
-            chartGrafik_NSV.Text = "chart1";
+            chartGrafik_NSV.Text = "Оклад Водителей";
             // 
             // panelFiltr_NSV
             // 
@@ -360,6 +362,8 @@
             dataGridViewVivod_NSV.Dock = DockStyle.Fill;
             dataGridViewVivod_NSV.Location = new Point(0, 0);
             dataGridViewVivod_NSV.Name = "dataGridViewVivod_NSV";
+            dataGridViewVivod_NSV.ReadOnly = true;
+            dataGridViewVivod_NSV.ScrollBars = ScrollBars.Vertical;
             dataGridViewVivod_NSV.Size = new Size(1035, 297);
             dataGridViewVivod_NSV.TabIndex = 0;
             // 
