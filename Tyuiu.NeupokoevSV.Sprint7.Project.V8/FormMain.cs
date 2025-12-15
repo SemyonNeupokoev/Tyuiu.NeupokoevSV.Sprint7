@@ -9,7 +9,7 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
     public partial class FormMain : Form
     {
         private List<Driver> drivers = new List<Driver>();
-
+        DataService ds = new DataService();
         public FormMain()
         {
             InitializeComponent();
@@ -108,7 +108,7 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
             {
                 string initials = $"{driver.LastName[0]}{driver.FirstName[0]}{driver.MiddleName[0]}";
 
-                chartGrafik_NSV.Series["Series1"].Points.AddXY(initials.ToUpper(),(double)driver.Salary);
+                chartGrafik_NSV.Series["Series1"].Points.AddXY(initials.ToUpper(), (double)driver.Salary);
             }
             chartGrafik_NSV.Titles.Clear();
             chartGrafik_NSV.Titles.Add("Оклады водителей");
@@ -152,6 +152,15 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
             else
                 MessageBox.Show($"Найдено: {count} водителей");
         }
-
+        private void buttonSred_NSV_Click(object sender, EventArgs e)
+        {
+            if (drivers.Count == 0)
+            {
+                MessageBox.Show("Нет данных!");
+                return;
+            }
+            textBoxStaj_NSV.Text = ds.SredStaj(drivers).ToString();
+            textBoxOklad_NSV.Text = ds.SredOkl(drivers).ToString();
+        }
     }
 }

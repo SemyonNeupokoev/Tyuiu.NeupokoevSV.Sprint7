@@ -45,6 +45,10 @@
             buttonIzmen_NSV = new Button();
             buttonDobavit_NSV = new Button();
             groupBoxFilter_NSV = new GroupBox();
+            buttonSred_NSV = new Button();
+            textBoxOklad_NSV = new TextBox();
+            textBoxStaj_NSV = new TextBox();
+            textBoxSred_NSV = new TextBox();
             buttonVipoln_NSV = new Button();
             textBoxMaks = new TextBox();
             textBoxMin_NSV = new TextBox();
@@ -81,7 +85,7 @@
             groupBoxSearch_NSV.Font = new Font("Segoe UI", 11F);
             groupBoxSearch_NSV.Location = new Point(0, 0);
             groupBoxSearch_NSV.Name = "groupBoxSearch_NSV";
-            groupBoxSearch_NSV.Size = new Size(136, 218);
+            groupBoxSearch_NSV.Size = new Size(111, 245);
             groupBoxSearch_NSV.TabIndex = 0;
             groupBoxSearch_NSV.TabStop = false;
             groupBoxSearch_NSV.Text = "Поиск";
@@ -89,15 +93,15 @@
             // textBoxPoiskName_NSV
             // 
             textBoxPoiskName_NSV.BackColor = SystemColors.Window;
-            textBoxPoiskName_NSV.Location = new Point(6, 43);
+            textBoxPoiskName_NSV.Location = new Point(4, 47);
             textBoxPoiskName_NSV.Multiline = true;
             textBoxPoiskName_NSV.Name = "textBoxPoiskName_NSV";
-            textBoxPoiskName_NSV.Size = new Size(127, 23);
+            textBoxPoiskName_NSV.Size = new Size(102, 23);
             textBoxPoiskName_NSV.TabIndex = 2;
             // 
             // buttonSearch_NSV
             // 
-            buttonSearch_NSV.Location = new Point(31, 100);
+            buttonSearch_NSV.Location = new Point(20, 100);
             buttonSearch_NSV.Name = "buttonSearch_NSV";
             buttonSearch_NSV.Size = new Size(75, 34);
             buttonSearch_NSV.TabIndex = 1;
@@ -111,7 +115,7 @@
             panelKnopki_NSV.Dock = DockStyle.Left;
             panelKnopki_NSV.Location = new Point(0, 0);
             panelKnopki_NSV.Name = "panelKnopki_NSV";
-            panelKnopki_NSV.Size = new Size(456, 218);
+            panelKnopki_NSV.Size = new Size(450, 245);
             panelKnopki_NSV.TabIndex = 1;
             // 
             // groupBoxKnopki_NSV
@@ -127,7 +131,7 @@
             groupBoxKnopki_NSV.Font = new Font("Segoe UI", 11F);
             groupBoxKnopki_NSV.Location = new Point(0, 0);
             groupBoxKnopki_NSV.Name = "groupBoxKnopki_NSV";
-            groupBoxKnopki_NSV.Size = new Size(456, 218);
+            groupBoxKnopki_NSV.Size = new Size(450, 245);
             groupBoxKnopki_NSV.TabIndex = 0;
             groupBoxKnopki_NSV.TabStop = false;
             groupBoxKnopki_NSV.Text = "Работа с данными и файлом";
@@ -135,7 +139,7 @@
             // buttonOpenDrugoi_NSV
             // 
             buttonOpenDrugoi_NSV.Image = Properties.Resources.folder_go;
-            buttonOpenDrugoi_NSV.Location = new Point(109, 76);
+            buttonOpenDrugoi_NSV.Location = new Point(109, 118);
             buttonOpenDrugoi_NSV.Name = "buttonOpenDrugoi_NSV";
             buttonOpenDrugoi_NSV.Size = new Size(98, 52);
             buttonOpenDrugoi_NSV.TabIndex = 1;
@@ -145,7 +149,7 @@
             // buttonSohr_NSV
             // 
             buttonSohr_NSV.Image = Properties.Resources.folder_page_white;
-            buttonSohr_NSV.Location = new Point(3, 76);
+            buttonSohr_NSV.Location = new Point(3, 118);
             buttonSohr_NSV.Name = "buttonSohr_NSV";
             buttonSohr_NSV.Size = new Size(100, 52);
             buttonSohr_NSV.TabIndex = 1;
@@ -155,7 +159,7 @@
             // buttonOProg_NSV
             // 
             buttonOProg_NSV.Image = Properties.Resources.help;
-            buttonOProg_NSV.Location = new Point(213, 76);
+            buttonOProg_NSV.Location = new Point(213, 118);
             buttonOProg_NSV.Name = "buttonOProg_NSV";
             buttonOProg_NSV.Size = new Size(108, 52);
             buttonOProg_NSV.TabIndex = 1;
@@ -213,6 +217,10 @@
             // 
             // groupBoxFilter_NSV
             // 
+            groupBoxFilter_NSV.Controls.Add(buttonSred_NSV);
+            groupBoxFilter_NSV.Controls.Add(textBoxOklad_NSV);
+            groupBoxFilter_NSV.Controls.Add(textBoxStaj_NSV);
+            groupBoxFilter_NSV.Controls.Add(textBoxSred_NSV);
             groupBoxFilter_NSV.Controls.Add(buttonVipoln_NSV);
             groupBoxFilter_NSV.Controls.Add(textBoxMaks);
             groupBoxFilter_NSV.Controls.Add(textBoxMin_NSV);
@@ -221,14 +229,51 @@
             groupBoxFilter_NSV.Font = new Font("Segoe UI", 11F);
             groupBoxFilter_NSV.Location = new Point(0, 0);
             groupBoxFilter_NSV.Name = "groupBoxFilter_NSV";
-            groupBoxFilter_NSV.Size = new Size(161, 218);
+            groupBoxFilter_NSV.Size = new Size(192, 245);
             groupBoxFilter_NSV.TabIndex = 0;
             groupBoxFilter_NSV.TabStop = false;
-            groupBoxFilter_NSV.Text = "Фильтрация";
+            groupBoxFilter_NSV.Text = "Фильтрация и среднее";
+            // 
+            // buttonSred_NSV
+            // 
+            buttonSred_NSV.Location = new Point(47, 209);
+            buttonSred_NSV.Name = "buttonSred_NSV";
+            buttonSred_NSV.Size = new Size(95, 28);
+            buttonSred_NSV.TabIndex = 4;
+            buttonSred_NSV.Text = "Выполнить";
+            toolTip_NSV.SetToolTip(buttonSred_NSV, "Посчитать средний стаж и оклад");
+            buttonSred_NSV.UseVisualStyleBackColor = true;
+            buttonSred_NSV.Click += buttonSred_NSV_Click;
+            // 
+            // textBoxOklad_NSV
+            // 
+            textBoxOklad_NSV.Location = new Point(118, 171);
+            textBoxOklad_NSV.Multiline = true;
+            textBoxOklad_NSV.Name = "textBoxOklad_NSV";
+            textBoxOklad_NSV.Size = new Size(68, 27);
+            textBoxOklad_NSV.TabIndex = 3;
+            // 
+            // textBoxStaj_NSV
+            // 
+            textBoxStaj_NSV.Location = new Point(118, 137);
+            textBoxStaj_NSV.Name = "textBoxStaj_NSV";
+            textBoxStaj_NSV.Size = new Size(68, 27);
+            textBoxStaj_NSV.TabIndex = 3;
+            // 
+            // textBoxSred_NSV
+            // 
+            textBoxSred_NSV.BackColor = SystemColors.Menu;
+            textBoxSred_NSV.BorderStyle = BorderStyle.None;
+            textBoxSred_NSV.Location = new Point(3, 136);
+            textBoxSred_NSV.Multiline = true;
+            textBoxSred_NSV.Name = "textBoxSred_NSV";
+            textBoxSred_NSV.Size = new Size(115, 69);
+            textBoxSred_NSV.TabIndex = 2;
+            textBoxSred_NSV.Text = "Средний стаж\r\n\r\nСредний оклад";
             // 
             // buttonVipoln_NSV
             // 
-            buttonVipoln_NSV.Location = new Point(36, 100);
+            buttonVipoln_NSV.Location = new Point(47, 100);
             buttonVipoln_NSV.Name = "buttonVipoln_NSV";
             buttonVipoln_NSV.Size = new Size(95, 34);
             buttonVipoln_NSV.TabIndex = 1;
@@ -239,18 +284,18 @@
             // 
             // textBoxMaks
             // 
-            textBoxMaks.Location = new Point(99, 69);
+            textBoxMaks.Location = new Point(118, 67);
             textBoxMaks.Multiline = true;
             textBoxMaks.Name = "textBoxMaks";
-            textBoxMaks.Size = new Size(55, 27);
+            textBoxMaks.Size = new Size(68, 27);
             textBoxMaks.TabIndex = 0;
             // 
             // textBoxMin_NSV
             // 
-            textBoxMin_NSV.Location = new Point(100, 32);
+            textBoxMin_NSV.Location = new Point(118, 34);
             textBoxMin_NSV.Multiline = true;
             textBoxMin_NSV.Name = "textBoxMin_NSV";
-            textBoxMin_NSV.Size = new Size(55, 27);
+            textBoxMin_NSV.Size = new Size(68, 27);
             textBoxMin_NSV.TabIndex = 0;
             // 
             // textBoxStag_NSV
@@ -275,16 +320,16 @@
             panelTop_NSV.Dock = DockStyle.Top;
             panelTop_NSV.Location = new Point(0, 0);
             panelTop_NSV.Name = "panelTop_NSV";
-            panelTop_NSV.Size = new Size(1035, 218);
+            panelTop_NSV.Size = new Size(1035, 245);
             panelTop_NSV.TabIndex = 0;
             // 
             // panelGrafik_NSV
             // 
             panelGrafik_NSV.Controls.Add(groupBoxGrafik_NSV);
             panelGrafik_NSV.Dock = DockStyle.Fill;
-            panelGrafik_NSV.Location = new Point(456, 0);
+            panelGrafik_NSV.Location = new Point(450, 0);
             panelGrafik_NSV.Name = "panelGrafik_NSV";
-            panelGrafik_NSV.Size = new Size(282, 218);
+            panelGrafik_NSV.Size = new Size(282, 245);
             panelGrafik_NSV.TabIndex = 3;
             // 
             // groupBoxGrafik_NSV
@@ -295,17 +340,17 @@
             groupBoxGrafik_NSV.Font = new Font("Segoe UI", 11F);
             groupBoxGrafik_NSV.Location = new Point(0, 0);
             groupBoxGrafik_NSV.Name = "groupBoxGrafik_NSV";
-            groupBoxGrafik_NSV.Size = new Size(282, 218);
+            groupBoxGrafik_NSV.Size = new Size(282, 245);
             groupBoxGrafik_NSV.TabIndex = 0;
             groupBoxGrafik_NSV.TabStop = false;
             groupBoxGrafik_NSV.Text = "График";
             // 
             // buttonGrafik_NSV
             // 
-            buttonGrafik_NSV.Dock = DockStyle.Fill;
+            buttonGrafik_NSV.Dock = DockStyle.Bottom;
             buttonGrafik_NSV.Location = new Point(3, 170);
             buttonGrafik_NSV.Name = "buttonGrafik_NSV";
-            buttonGrafik_NSV.Size = new Size(276, 45);
+            buttonGrafik_NSV.Size = new Size(276, 72);
             buttonGrafik_NSV.TabIndex = 1;
             buttonGrafik_NSV.Text = "Отобразить";
             toolTip_NSV.SetToolTip(buttonGrafik_NSV, "Отобразить на графике оклады\r\n");
@@ -333,27 +378,27 @@
             // 
             panelFiltr_NSV.Controls.Add(groupBoxFilter_NSV);
             panelFiltr_NSV.Dock = DockStyle.Right;
-            panelFiltr_NSV.Location = new Point(738, 0);
+            panelFiltr_NSV.Location = new Point(732, 0);
             panelFiltr_NSV.Name = "panelFiltr_NSV";
-            panelFiltr_NSV.Size = new Size(161, 218);
+            panelFiltr_NSV.Size = new Size(192, 245);
             panelFiltr_NSV.TabIndex = 2;
             // 
             // panelSearch_NSV
             // 
             panelSearch_NSV.Controls.Add(groupBoxSearch_NSV);
             panelSearch_NSV.Dock = DockStyle.Right;
-            panelSearch_NSV.Location = new Point(899, 0);
+            panelSearch_NSV.Location = new Point(924, 0);
             panelSearch_NSV.Name = "panelSearch_NSV";
-            panelSearch_NSV.Size = new Size(136, 218);
+            panelSearch_NSV.Size = new Size(111, 245);
             panelSearch_NSV.TabIndex = 1;
             // 
             // panelFall_NSV
             // 
             panelFall_NSV.Controls.Add(dataGridViewVivod_NSV);
             panelFall_NSV.Dock = DockStyle.Fill;
-            panelFall_NSV.Location = new Point(0, 218);
+            panelFall_NSV.Location = new Point(0, 245);
             panelFall_NSV.Name = "panelFall_NSV";
-            panelFall_NSV.Size = new Size(1035, 297);
+            panelFall_NSV.Size = new Size(1035, 270);
             panelFall_NSV.TabIndex = 1;
             // 
             // dataGridViewVivod_NSV
@@ -364,7 +409,7 @@
             dataGridViewVivod_NSV.Name = "dataGridViewVivod_NSV";
             dataGridViewVivod_NSV.ReadOnly = true;
             dataGridViewVivod_NSV.ScrollBars = ScrollBars.Vertical;
-            dataGridViewVivod_NSV.Size = new Size(1035, 297);
+            dataGridViewVivod_NSV.Size = new Size(1035, 270);
             dataGridViewVivod_NSV.TabIndex = 0;
             // 
             // toolTip_NSV
@@ -428,5 +473,9 @@
         private Button buttonVipoln_NSV;
         private TextBox textBoxPoiskName_NSV;
         private Button buttonGrafik_NSV;
+        private TextBox textBoxSred_NSV;
+        private TextBox textBoxOklad_NSV;
+        private TextBox textBoxStaj_NSV;
+        private Button buttonSred_NSV;
     }
 }

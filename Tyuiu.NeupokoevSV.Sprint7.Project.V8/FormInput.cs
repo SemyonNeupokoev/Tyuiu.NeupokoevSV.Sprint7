@@ -7,7 +7,7 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
 {
     public partial class FormInput : Form
     {
-        private Driver _driver = new Driver(); // Проще инициализация
+        private Driver _driver = new Driver();
 
         public FormInput()
         {
