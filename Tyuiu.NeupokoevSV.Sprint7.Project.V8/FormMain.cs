@@ -110,6 +110,7 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
 
                 chartGrafik_NSV.Series["Series1"].Points.AddXY(initials.ToUpper(), (double)driver.Salary);
             }
+            chartGrafik_NSV.Series["Series1"]["PointWidth"] = "0.1";
             chartGrafik_NSV.Titles.Clear();
             chartGrafik_NSV.Titles.Add("Оклады водителей");
             chartGrafik_NSV.ChartAreas[0].AxisX.Title = "Водитель";
@@ -161,6 +162,21 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
             }
             textBoxStaj_NSV.Text = ds.SredStaj(drivers).ToString();
             textBoxOklad_NSV.Text = ds.SredOkl(drivers).ToString();
+        }
+
+        private void buttonSearch_NSV_Click(object sender, EventArgs e)
+        { 
+            string search = textBoxPoiskName_NSV.Text.ToLower();
+
+            dataGridViewVivod_NSV.Rows.Clear();
+
+            foreach (var d in drivers)
+            {
+                if (d.LastName.ToLower().Contains(search) || d.FirstName.ToLower().Contains(search) || d.MiddleName.ToLower().Contains(search))
+                {
+                    dataGridViewVivod_NSV.Rows.Add(d.TabNumber, d.LastName, d.FirstName, d.MiddleName, d.BirthDate.ToShortDateString(), d.Experience, d.Salary);
+                }
+            }
         }
     }
 }

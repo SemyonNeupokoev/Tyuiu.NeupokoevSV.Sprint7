@@ -108,6 +108,7 @@
             buttonSearch_NSV.Text = "Искать";
             toolTip_NSV.SetToolTip(buttonSearch_NSV, "Происходит поиск по имени, фамилии или отчеству");
             buttonSearch_NSV.UseVisualStyleBackColor = true;
+            buttonSearch_NSV.Click += buttonSearch_NSV_Click;
             // 
             // panelKnopki_NSV
             // 
