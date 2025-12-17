@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             groupBoxSearch_NSV = new GroupBox();
             textBoxPoiskName_NSV = new TextBox();
             buttonSearch_NSV = new Button();
@@ -63,6 +63,7 @@
             panelFall_NSV = new Panel();
             dataGridViewVivod_NSV = new DataGridView();
             toolTip_NSV = new ToolTip(components);
+            saveFileDialog_NSV = new SaveFileDialog();
             groupBoxSearch_NSV.SuspendLayout();
             panelKnopki_NSV.SuspendLayout();
             groupBoxKnopki_NSV.SuspendLayout();
@@ -156,6 +157,7 @@
             buttonSohr_NSV.TabIndex = 1;
             toolTip_NSV.SetToolTip(buttonSohr_NSV, "Сохранить данные");
             buttonSohr_NSV.UseVisualStyleBackColor = true;
+            buttonSohr_NSV.Click += buttonSohr_NSV_Click;
             // 
             // buttonOProg_NSV
             // 
@@ -360,17 +362,17 @@
             // 
             // chartGrafik_NSV
             // 
-            chartArea1.Name = "ChartArea1";
-            chartGrafik_NSV.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            chartGrafik_NSV.ChartAreas.Add(chartArea2);
             chartGrafik_NSV.Dock = DockStyle.Top;
-            legend1.Name = "Legend1";
-            chartGrafik_NSV.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            chartGrafik_NSV.Legends.Add(legend2);
             chartGrafik_NSV.Location = new Point(3, 23);
             chartGrafik_NSV.Name = "chartGrafik_NSV";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chartGrafik_NSV.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            chartGrafik_NSV.Series.Add(series2);
             chartGrafik_NSV.Size = new Size(276, 147);
             chartGrafik_NSV.TabIndex = 0;
             chartGrafik_NSV.Text = "Оклад Водителей";
@@ -478,5 +480,6 @@
         private TextBox textBoxOklad_NSV;
         private TextBox textBoxStaj_NSV;
         private Button buttonSred_NSV;
+        private SaveFileDialog saveFileDialog_NSV;
     }
 }

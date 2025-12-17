@@ -140,11 +140,7 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
             {
                 if (d.Experience >= min && d.Experience <= max)
                 {
-                    dataGridViewVivod_NSV.Rows.Add(
-                        d.TabNumber, d.LastName, d.FirstName,
-                        d.MiddleName, d.BirthDate.ToShortDateString(),
-                        d.Experience, d.Salary
-                    );
+                    dataGridViewVivod_NSV.Rows.Add( d.TabNumber, d.LastName, d.FirstName, d.MiddleName, d.BirthDate.ToShortDateString(),d.Experience, d.Salary);
                     count++;
                 }
             }
@@ -165,7 +161,7 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
         }
 
         private void buttonSearch_NSV_Click(object sender, EventArgs e)
-        { 
+        {
             string search = textBoxPoiskName_NSV.Text.ToLower();
 
             dataGridViewVivod_NSV.Rows.Clear();
@@ -176,6 +172,25 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
                 {
                     dataGridViewVivod_NSV.Rows.Add(d.TabNumber, d.LastName, d.FirstName, d.MiddleName, d.BirthDate.ToShortDateString(), d.Experience, d.Salary);
                 }
+            }
+        }
+
+        private void buttonSohr_NSV_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog_NSV.ShowDialog() == DialogResult.OK)
+            {
+                var lines = new List<string>();
+
+                foreach (DataGridViewRow row in dataGridViewVivod_NSV.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        var cells = row.Cells.Cast<DataGridViewCell>().Select(c => c.Value?.ToString() ?? "");
+                        lines.Add(string.Join(" ", cells));
+                    }
+                }
+
+                File.WriteAllLines(saveFileDialog_NSV.FileName, lines);
             }
         }
     }
