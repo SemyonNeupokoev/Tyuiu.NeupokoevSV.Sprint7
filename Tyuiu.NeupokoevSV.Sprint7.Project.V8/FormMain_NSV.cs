@@ -1,16 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Windows.Forms;
 using Tyuiu.NeupokoevSV.Sprint7.Project.V8.Lib;
 using static Tyuiu.NeupokoevSV.Sprint7.Project.V8.Lib.DataService;
 
 namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
 {
-    public partial class FormMain : Form
+    public partial class FormMain_NSV : Form
     {
         private List<Driver> drivers = new List<Driver>();
         DataService ds = new DataService();
-        public FormMain()
+        public FormMain_NSV()
         {
             InitializeComponent();
             SetupTable();
@@ -39,7 +40,7 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
 
         private void buttonDobavit_NSV_Click(object sender, EventArgs e)
         {
-            var form = new FormInput();
+            var form = new FormInput_NSV();
             if (form.ShowDialog() == DialogResult.OK)
             {
                 drivers.Add(form.Driver);
@@ -54,7 +55,7 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
                 int idx = dataGridViewVivod_NSV.SelectedRows[0].Index;
                 if (idx < drivers.Count)
                 {
-                    var form = new FormInput(drivers[idx]);
+                    var form = new FormInput_NSV(drivers[idx]);
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         drivers[idx] = form.Driver;
@@ -90,7 +91,7 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
 
         private void buttonOProg_NSV_Click(object sender, EventArgs e)
         {
-            FormAbout formabout = new FormAbout();
+            FormAbout_NSV formabout = new FormAbout_NSV();
             formabout.ShowDialog();
         }
 
@@ -140,7 +141,7 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
             {
                 if (d.Experience >= min && d.Experience <= max)
                 {
-                    dataGridViewVivod_NSV.Rows.Add( d.TabNumber, d.LastName, d.FirstName, d.MiddleName, d.BirthDate.ToShortDateString(),d.Experience, d.Salary);
+                    dataGridViewVivod_NSV.Rows.Add(d.TabNumber, d.LastName, d.FirstName, d.MiddleName, d.BirthDate.ToShortDateString(), d.Experience, d.Salary);
                     count++;
                 }
             }
@@ -180,17 +181,51 @@ namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
             if (saveFileDialog_NSV.ShowDialog() == DialogResult.OK)
             {
                 var lines = new List<string>();
+                var headers = dataGridViewVivod_NSV.Columns.Cast<DataGridViewColumn>().Select(c => c.HeaderText);
+                lines.Add(string.Join("\t", headers));
 
                 foreach (DataGridViewRow row in dataGridViewVivod_NSV.Rows)
                 {
                     if (!row.IsNewRow)
                     {
                         var cells = row.Cells.Cast<DataGridViewCell>().Select(c => c.Value?.ToString() ?? "");
-                        lines.Add(string.Join(" ", cells));
+                        lines.Add(string.Join("\t", cells));
                     }
                 }
 
-                File.WriteAllLines(saveFileDialog_NSV.FileName, lines);
+                File.WriteAllLines(saveFileDialog_NSV.FileName, lines, Encoding.UTF8);
+            }
+        }
+
+        private void buttonOpenDrugoi_NSV_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openDialog.FileName;
+                dataGridViewVivod_NSV.Rows.Clear();
+                dataGridViewVivod_NSV.Columns.Clear();
+                string[] lines = File.ReadAllLines(filePath, Encoding.UTF8);
+                if (lines.Length == 0) return;
+
+                char separator = lines[0].Contains('\t') ? '\t' : ' ';
+
+                string[] headers = lines[0].Split(separator);
+                foreach (string header in headers)
+                {
+                    dataGridViewVivod_NSV.Columns.Add(header.Trim(), header.Trim());
+                }
+
+                for (int i = 1; i < lines.Length; i++)
+                {
+                    if (!string.IsNullOrWhiteSpace(lines[i]))
+                    {
+                        string[] values = lines[i].Split(separator);
+                        dataGridViewVivod_NSV.Rows.Add(values);
+                    }
+                }
             }
         }
     }

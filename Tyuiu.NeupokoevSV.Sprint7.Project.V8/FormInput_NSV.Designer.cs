@@ -2,7 +2,7 @@
 using System.Drawing;
 namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
 {
-    partial class FormInput
+    partial class FormInput_NSV
     {
         /// <summary>
         /// Required designer variable.

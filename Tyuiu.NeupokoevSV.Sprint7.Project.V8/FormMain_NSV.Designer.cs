@@ -1,6 +1,6 @@
 ﻿namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
 {
-    partial class FormMain
+    partial class FormMain_NSV
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             groupBoxSearch_NSV = new GroupBox();
             textBoxPoiskName_NSV = new TextBox();
             buttonSearch_NSV = new Button();
@@ -64,6 +64,7 @@
             dataGridViewVivod_NSV = new DataGridView();
             toolTip_NSV = new ToolTip(components);
             saveFileDialog_NSV = new SaveFileDialog();
+            openFileDialog1 = new OpenFileDialog();
             groupBoxSearch_NSV.SuspendLayout();
             panelKnopki_NSV.SuspendLayout();
             groupBoxKnopki_NSV.SuspendLayout();
@@ -147,6 +148,7 @@
             buttonOpenDrugoi_NSV.TabIndex = 1;
             toolTip_NSV.SetToolTip(buttonOpenDrugoi_NSV, "Открыть в другом файле");
             buttonOpenDrugoi_NSV.UseVisualStyleBackColor = true;
+            buttonOpenDrugoi_NSV.Click += buttonOpenDrugoi_NSV_Click;
             // 
             // buttonSohr_NSV
             // 
@@ -362,17 +364,17 @@
             // 
             // chartGrafik_NSV
             // 
-            chartArea2.Name = "ChartArea1";
-            chartGrafik_NSV.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            chartGrafik_NSV.ChartAreas.Add(chartArea1);
             chartGrafik_NSV.Dock = DockStyle.Top;
-            legend2.Name = "Legend1";
-            chartGrafik_NSV.Legends.Add(legend2);
+            legend1.Name = "Legend1";
+            chartGrafik_NSV.Legends.Add(legend1);
             chartGrafik_NSV.Location = new Point(3, 23);
             chartGrafik_NSV.Name = "chartGrafik_NSV";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chartGrafik_NSV.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chartGrafik_NSV.Series.Add(series1);
             chartGrafik_NSV.Size = new Size(276, 147);
             chartGrafik_NSV.TabIndex = 0;
             chartGrafik_NSV.Text = "Оклад Водителей";
@@ -420,14 +422,18 @@
             toolTip_NSV.ToolTipIcon = ToolTipIcon.Info;
             toolTip_NSV.ToolTipTitle = "Подсказка";
             // 
-            // FormMain
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // FormMain_NSV
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1035, 515);
             Controls.Add(panelFall_NSV);
             Controls.Add(panelTop_NSV);
-            Name = "FormMain";
+            Name = "FormMain_NSV";
             Text = "Автотранспортное предприятие";
             WindowState = FormWindowState.Maximized;
             groupBoxSearch_NSV.ResumeLayout(false);
@@ -481,5 +487,6 @@
         private TextBox textBoxStaj_NSV;
         private Button buttonSred_NSV;
         private SaveFileDialog saveFileDialog_NSV;
+        private OpenFileDialog openFileDialog1;
     }
 }

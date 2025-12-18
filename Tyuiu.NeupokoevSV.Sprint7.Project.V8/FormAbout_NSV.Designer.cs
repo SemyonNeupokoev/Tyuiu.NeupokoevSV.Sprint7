@@ -1,6 +1,6 @@
 ﻿namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
 {
-    partial class FormAbout
+    partial class FormAbout_NSV
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAbout));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAbout_NSV));
             labelInfo_NSV = new Label();
             pictureBoxMe_NSV = new PictureBox();
             buttonOk_NSV = new Button();

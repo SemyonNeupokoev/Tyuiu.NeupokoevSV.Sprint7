@@ -5,15 +5,15 @@ using static Tyuiu.NeupokoevSV.Sprint7.Project.V8.Lib.DataService;
 
 namespace Tyuiu.NeupokoevSV.Sprint7.Project.V8
 {
-    public partial class FormInput : Form
+    public partial class FormInput_NSV : Form
     {
         private Driver _driver = new Driver();
 
-        public FormInput()
+        public FormInput_NSV()
         {
             InitializeComponent();
         }
-        public FormInput(Driver driverToEdit) : this()
+        public FormInput_NSV(Driver driverToEdit) : this()
         {
             if (driverToEdit != null)
             {
